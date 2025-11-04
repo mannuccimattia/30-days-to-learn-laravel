@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-700 text-gray-100">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </head>
 
-<body class="bg-gray-700 text-gray-100">
+<body class="h-full">
     <nav
         class="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -39,13 +39,9 @@
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
-                            <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                            <a href="/" aria-current="page"
-                                class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
-                            <a href="/about"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-                            <a href="/contacts"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contacts</a>
+                            <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                            <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                            <x-nav-link href="/contacts" :active="request()->is('contacts')">Contacts</x-nav-link>
                         </div>
                     </div>
                 </div>
@@ -71,18 +67,6 @@
                             <img src="/imgs/avatar.jpg" alt="Seymooooour"
                                 class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
                         </button>
-
-                        {{-- <el-menu anchor="bottom end" popover
-                            class="w-48 origin-top-right rounded-md bg-gray-800 py-1 outline -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Your
-                                profile</a>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Settings</a>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Sign
-                                out</a>
-                        </el-menu> --}}
                     </el-dropdown>
                 </div>
             </div>
@@ -101,7 +85,7 @@
         </el-disclosure>
     </nav>
 
-    <header class="bg-gray-700 shadow">
+    <header class="bg-slate-700 shadow">
         <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold tracking-tight">{{ $header }}</h1>
         </div>
