@@ -15,7 +15,7 @@
                             <div
                                 class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
 
-                                <input id="title" type="text" name="title" placeholder="Shift Leader"
+                                <input required id="title" type="text" name="title" placeholder="Shift Leader"
                                     class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
                             </div>
                         </div>
@@ -26,11 +26,21 @@
                             <div
                                 class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
 
-                                <input id="salary" type="text" name="salary" placeholder="$ 50,000 Per Year"
+                                <input required id="salary" type="text" name="salary" placeholder="$ 50,000 USD"
                                     class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="mt-10">
+                    @if ($errors->any())
+                        <ul class="px-2 font-semibold text-red-900 rounded-lg bg-red-300 border border-red-950">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             </div>
         </div>

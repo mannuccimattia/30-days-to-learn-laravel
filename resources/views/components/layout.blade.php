@@ -74,20 +74,17 @@
 
         <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
             <div class="space-y-1 px-2 pt-2 pb-3">
-                <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                <a href="/" aria-current="page"
-                    class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white">Home</a>
-                <a href="/about"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-                <a href="/contacts"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contacts</a>
+                <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
+                <x-nav-link href="/contacts" :active="request()->is('contacts')">Contacts</x-nav-link>
             </div>
         </el-disclosure>
     </nav>
 
     <header class="bg-slate-700 shadow">
-        <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 flex justify-between align-middle">
             <h1 class="text-3xl font-bold tracking-tight">{{ $header }}</h1>
+            <a href="/jobs/create" class="text-blue-400 underline mt-1">Add a New Job</a>
         </div>
     </header>
     <main>
