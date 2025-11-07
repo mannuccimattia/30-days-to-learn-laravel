@@ -21,7 +21,7 @@ class SessionController extends Controller
         ]);
 
         // Login attempt
-        if (! Auth::attempt($attributes)) {
+        if (!Auth::attempt($attributes)) {
             throw ValidationException::withMessages([
                 'email' => 'Sorry. Those crentials do not match.'
             ]);
